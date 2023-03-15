@@ -1,0 +1,43 @@
+{% extends 'navabar.html' %}
+
+{% block content %}
+<form  METHOD="post">
+  {% csrf_token %}
+  <h2 align="center">Add student Data </h2>
+      <table align="center">
+        <tr>
+          <td>NAME:</td>
+          <td> <input type="text" name="textname" value="{{ data.stud_name }}"></td>
+          </tr>
+        <tr>
+          <td>AGE</td>
+          <td> <input type="number" name="tbage" value="{{ data.stud_age}}"></td>
+        </tr>
+        <tr>
+          <td>MOBILE_NUMBER:</td>
+          <td><input type="number" name="tbnum" value="{{ data.stud_phno}}"></td>
+        </tr>
+          <tr>
+          <td>CITY</td>
+           <td> <select name="ddcity">
+             <option selected>{{ data.stud_city }}</option>
+             {% for i in City_Data %}
+               <option>{{ i.City_name }}</option>
+             {% endfor %}
+           </select></td>
+
+
+        <tr>
+          <td> COURSE:</td>
+          <td> <select name='ddlcourse'>
+            <option selected>{{ data.stud_course}}</option>
+            {% for i in Course_Data %}
+              <option>{{ i.course_type }}</option>
+            {% endfor %}
+          </select></td>
+        <tr>
+        <td><input type="submit" value="Addstudent"></td>
+      </tr>
+      </table>
+</form>
+{% endblock %}

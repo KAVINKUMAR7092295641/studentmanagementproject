@@ -1,0 +1,31 @@
+{% load static %}
+< doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="{% static '/css/login.css' %}" rel="stylesheet">
+</head>
+<body>
+<h2 align="center">second page</h2>
+<form action="logdata" METHOD="post">
+    {% csrf_token %}
+    <h3 style="color:red">{{data}}</h3>
+    <table align="center">
+        <tr>
+            <td>USER:</td>
+            <td><input type="text" name="textname" > </td>
+        </tr>
+        <tr>
+            <td>PASSWORD:</td>
+            <td><input type="password" name="tbpassword"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="tbnsbt" value="login"></td>
+            <td><a href="{% url 'reg' %}">sign up </a><td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
